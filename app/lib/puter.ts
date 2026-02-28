@@ -243,7 +243,6 @@ export const usePuterStore = create<PuterStore>((set, get) => {
 
   const init = (): void => {
     const puter = getPuter();
-    console.log("puter", puter);
 
     if (puter) {
       set({ puterReady: true });
