@@ -7,7 +7,7 @@ import { generateUUID } from "~/lib/utils";
 import Navbar from "~/Navbar";
 import { prepareInstructions } from "../../constants";
 
-const upload = () => {
+const Upload = () => {
   const { auth, isLoading, fs, ai, kv } = usePuterStore();
   const navigate = useNavigate();
   const [isProcessing, setIsProcessing] = useState(false);
@@ -70,6 +70,7 @@ const upload = () => {
     await kv.set(`resume:${uuid}`, JSON.stringify(data));
     setStatusText("Analysis complete, redirecting...");
     console.log(data);
+    navigate(`/resume/${uuid}`);
   };
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
@@ -155,4 +156,4 @@ const upload = () => {
   );
 };
 
-export default upload;
+export default Upload;
